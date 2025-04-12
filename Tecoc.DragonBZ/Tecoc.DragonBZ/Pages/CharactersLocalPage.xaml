@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tecoc.DragonBZ.Pages.CharactersPage"
+             x:Class="Tecoc.DragonBZ.Pages.CharactersLocalPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:Tecoc.DragonBZ.ViewModels"
              xmlns:ct="clr-namespace:Tecoc.DragonBZ.Controls"
-             Title="CharactersPage">
+             Title="CharactersLocalPage">
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
             EventName="Appearing"
             Command="{Binding LoadDataCharactersCommand}"/>
     </ContentPage.Behaviors>
     <ContentPage.BindingContext>
-        <vm:CharactersViewModel/>
+        <vm:CharactersLocalViewModel/>
     </ContentPage.BindingContext>
+
     <VerticalStackLayout>
         <Grid>
-            <ct:CustomLoaderControl
-                Message="Vea que si funciono"
-                MessageSize="30"
-                IsVisible="{Binding IsBusy}"/>
+            <ct:CustomLoaderControl IsVisible="{Binding IsBusy}"/>
 
-            <CollectionView ItemsSource="{Binding Chararcters}"
-                            IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}">
+            <CollectionView ItemsSource="{Binding Chararcters}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions="0.2*, 0.6*, 0.2*">

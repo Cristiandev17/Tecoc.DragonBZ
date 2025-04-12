@@ -8,8 +8,12 @@
     Title="Tecoc.DragonBZ">
 
     <ShellContent
-        Title="Home"
+        Title="Personajes Api"
         ContentTemplate="{DataTemplate pg:CharactersPage}"
         Route="CharactersPage"/>
 
+    <ShellContent
+        Title="Personajes Locales"
+        ContentTemplate="{DataTemplate pg:CharactersLocalPage}"
+        Route="CharactersLocalPage"/>
 </Shell>

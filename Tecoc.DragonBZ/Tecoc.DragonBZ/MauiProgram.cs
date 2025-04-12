@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using Tecoc.DragonBZ.Repositories;
 using Tecoc.DragonBZ.Repositories.Interfaces;
+using Tecoc.DragonBZ.Services;
+using Tecoc.DragonBZ.Services.Interfaces;
 using Tecoc.DragonBZ.ViewModels;
 
 namespace Tecoc.DragonBZ;
@@ -21,6 +23,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ICharacterRepository, CharacterRepository>();
+		builder.Services.AddSingleton<IResponseService, ResponseService>();
 
 		builder.Services.AddTransient<CharactersViewModel>();
 
