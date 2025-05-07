@@ -23,9 +23,14 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ICharacterRepository, CharacterRepository>();
+		builder.Services.AddSingleton<ICharacterRealmRepository, CharacterRealmRepository>();
 		builder.Services.AddSingleton<IResponseService, ResponseService>();
+		builder.Services.AddSingleton<IContextDataBase, ContextDataBase>();
 
 		builder.Services.AddTransient<CharactersViewModel>();
+		builder.Services.AddTransient<CharactersLocalViewModel>();
+		builder.Services.AddTransient<DetailCharacterViewModel>();
+
 
 #if DEBUG
 		builder.Logging.AddDebug();

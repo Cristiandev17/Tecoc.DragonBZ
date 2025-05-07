@@ -5,6 +5,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:Tecoc.DragonBZ.ViewModels"
              xmlns:ct="clr-namespace:Tecoc.DragonBZ.Controls"
+             x:Name="pgCharacteres"
              Title="CharactersPage">
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
@@ -21,14 +22,25 @@
                 MessageSize="30"
                 IsVisible="{Binding IsBusy}"/>
 
-            <CollectionView ItemsSource="{Binding Chararcters}"
+            <CollectionView ItemsSource="{Binding Characters}"
                             IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions="0.2*, 0.6*, 0.2*">
-                            <Image Source="{Binding Image}"/>
+                            <Image Source="{Binding Image}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference Name=pgCharacteres}, Path=BindingContext.GoToDetailCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
                             <Label Grid.Column="1"
-                                   Text="{Binding Name}"/>
+                                   Text="{Binding Name}"
+                                   TextColor="{Binding Ki, Converter={StaticResource kiColorConverter}}"/>
+                            <!-- <Label Grid.Column="2"
+                                   Text="{Binding Ki}"
+                                   TextColor="{Binding Ki, Converter={StaticResource kiColorConverter}}"/> -->
+
+
 
                         </Grid>
 

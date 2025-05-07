@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <cv:InvertBoolConverter x:Key="invertBoolConverter"/>
+            <cv:KiColorConverter x:Key="kiColorConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
