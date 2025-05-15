@@ -9,6 +9,8 @@ namespace Tecoc.DragonBZ.Converters
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
+            if (value == null)
+                return Colors.Transparent;
             var ki = System.Convert.ToInt32(value.ToString().Replace(".", ""));
             if (ki > 50000000)
                 return Colors.Red;
@@ -19,7 +21,7 @@ namespace Tecoc.DragonBZ.Converters
             if (ki == 0)
                 return Colors.Green;
 
-          `
+          return Colors.Blue;
 
         }
 

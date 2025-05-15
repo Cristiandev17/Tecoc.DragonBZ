@@ -18,12 +18,12 @@ public partial class CharactersViewModel : ObservableObject
     private bool _isBusy;
 
     private ICharacterRepository _characterRepository;
-    private ICharacterRealmRepository _characterRealmRepository;
+
 
     public CharactersViewModel()
     {
         _characterRepository = Startup.GetService<ICharacterRepository>();
-        _characterRealmRepository = Startup.GetService<ICharacterRealmRepository>();
+
     }
 
     [RelayCommand]
@@ -39,12 +39,21 @@ public partial class CharactersViewModel : ObservableObject
     [RelayCommand]
     public async Task GoToDetail(CharacterModel character)
     {
-        // var parameters = new Dictionary<string, object> { { "Character", character } };
-        // await Shell.Current.GoToAsync(nameof(DetailCharacterPage), true, parameters);
+        var parameters = new Dictionary<string, object> { { "character", character } };
+        await Shell.Current.GoToAsync(nameof(DetailCharacterPage), true, parameters);
+    }
 
-
-        var item = character.ToEntity();
-        _characterRealmRepository.SaveCharater(item);
-
+    [RelayCommand]
+    public async Task ChangeTheme()
+    {
+        var currentTheme = Application.Current.RequestedTheme;
+        if (currentTheme == AppTheme.Light)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+        }
     }
 }

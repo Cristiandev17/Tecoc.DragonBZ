@@ -7,6 +7,18 @@
              xmlns:ct="clr-namespace:Tecoc.DragonBZ.Controls"
              x:Name="pgCharacteres"
              Title="CharactersPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding ChangeThemeCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    Glyph="&#xE80A;"
+                    FontFamily="Iconfont"
+                    Color="Black"
+                    Size="30"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
             EventName="Appearing"
