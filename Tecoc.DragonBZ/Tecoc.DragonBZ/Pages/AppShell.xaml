@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pg="clr-namespace:Tecoc.DragonBZ.Pages"
-    xmlns:helpers="clr-namespace:Tecoc.DragonBZ.Helpers"
+    
     Shell.FlyoutBehavior="Flyout"
     Title="Tecoc.DragonBZ">
 
@@ -14,7 +14,7 @@
         Route="CharactersPage"/>
 
     <ShellContent
-        Title="{helpers:TextFieldHelper strTitleMenuCharactersLocal}"
+        Title="titulo"
         ContentTemplate="{DataTemplate pg:CharactersLocalPage}"
         Route="CharactersLocalPage"/>
 </Shell>

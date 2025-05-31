@@ -1,5 +1,7 @@
 using System.Reflection;
 using System.Resources;
+using Tecoc.DragonBZ.Helpers;
+
 
 namespace Tecoc.DragonBZ.Helpers
 {
